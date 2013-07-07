@@ -8,21 +8,21 @@ void loop() {
  if(Serial.available() > 0)
    {
     int a = Serial.read();
-     if(a == 49){
-       irsend.sendRaw(powerOn, 228, 36);
+     if(a == 49){ //Если в сериал пришла 1
+       irsend.sendRaw(powerOn, 228, 36); //Команда на кондиционер
        Serial.println("Cond on");
      }
-     if(a == 50){
-      irsend.sendNEC(0x20DF10EF, 32); //Power button TV LG
+     if(a == 50){ //Если в сериал пришла 2
+      irsend.sendNEC(0x20DF10EF, 32); //Кнопка Power TV LG
        Serial.println("TV on/off");
      }
-     if(a == 51){
+     if(a == 51){ //Если в сериал пришла 3
       irsend.sendNEC(0x20DF00FF, 32); //Next channel
        Serial.println("next ch");
      }
-     if(a == 52){
-      irsend.sendNEC(0x20DF48B7, 32); //2 ch
-      irsend.sendNEC(0x20DF28D7, 32); //4 ch
+     if(a == 52){ //Если в сериал пришла 4
+      irsend.sendNEC(0x20DF48B7, 32); // кнопка 2
+      irsend.sendNEC(0x20DF28D7, 32); // кнопка 4
        Serial.println("24ch");
      }
     a = 0;
