@@ -17,7 +17,7 @@ void loop() {
        Serial.println("TV on/off");
      }
      if(a == 51){
-      irsend.sendNEC(0x20DF00FF, 32); 
+      irsend.sendNEC(0x20DF00FF, 32); //Next channel
        Serial.println("next ch");
      }
      if(a == 52){
