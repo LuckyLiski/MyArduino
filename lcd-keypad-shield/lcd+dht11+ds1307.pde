@@ -1,14 +1,12 @@
-//Sample using LiquidCrystal library
-#include <LiquidCrystal.h>
-// select the pins used on the LCD panel
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+#include <LiquidCrystal.h> //Sample using LiquidCrystal library
+LiquidCrystal lcd(8, 9, 4, 5, 6, 7); // select the pins used on the LCD panel
 
 #include "DHT.h"
-#define DHTPIN 2     // what pin we're connected to 
+#define DHTPIN 2     // Датчик DHT на пин 2
 #define DHTTYPE DHT11   // DHT 11  
 DHT dht(DHTPIN, DHTTYPE);
 
-#include <Wire.h>
+#include <Wire.h> // SDA-пин А4, SCL-пин А5
 #include "RTClib.h"
 RTC_DS1307 RTC;
 
