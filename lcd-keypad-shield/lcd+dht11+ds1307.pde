@@ -24,7 +24,8 @@ RTC.begin();
 void loop()
 {
 DateTime now = RTC.now(); 
-lcd.setCursor(0,0);            // move to the begining of the second line
+lcd.setCursor(0,0); // move to the begining of the second line
+lcd.print("    ");
 lcd.print(now.hour(), DEC);
 lcd.print(":");
 lcd.print(now.minute(), DEC);
@@ -36,11 +37,13 @@ lcd.print(now.second(), DEC);
 float h = dht.readHumidity();
 float t = dht.readTemperature();
 lcd.setCursor(0,1);
+lcd.print(" ");
 lcd.print("H:");
 lcd.print((int)h); //(int) - округление до целого
 lcd.print("%");
+lcd.print("   ");
 lcd.print("T:");
 lcd.print((int)t); //(int) - округление до целого
-lcd.print("C");
+lcd.print("`C");
 
 }
