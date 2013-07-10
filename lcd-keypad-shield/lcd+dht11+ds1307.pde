@@ -18,7 +18,7 @@ lcd.begin(16, 2);              // start the library
 dht.begin(); 
 Wire.begin();
 RTC.begin();
-//RTC.adjust(DateTime(__DATE__, __TIME__)); //раскоментировать чтобы установить правильное время
+//RTC.adjust(DateTime(__DATE__, __TIME__)); 
 }
   
 void loop()
@@ -37,10 +37,10 @@ float h = dht.readHumidity();
 float t = dht.readTemperature();
 lcd.setCursor(0,1);
 lcd.print("H:");
-lcd.print(h);
+lcd.print((int)h); //(int) - округление до целого
 lcd.print("%");
 lcd.print("T:");
-lcd.print(t);
+lcd.print((int)t); //(int) - округление до целого
 lcd.print("C");
 
 }
