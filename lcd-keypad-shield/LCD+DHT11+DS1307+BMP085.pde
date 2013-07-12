@@ -109,7 +109,8 @@ void loop() {
     lcd.print("   ");
     lcd.print("T:");
     lcd.print((int)t); //(int) - округление до целого
-    lcd.print("`C");
+    lcd.print(char(0)); // Символ градуса
+    lcd.print("C");
 
   // check if returns are valid, if they are NaN (not a number) then something went wrong!
   if (isnan(t) || isnan(h)) {
