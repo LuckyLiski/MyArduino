@@ -24,7 +24,7 @@ byte temp_cel[8] =
 0b00000,
 0b00000
 };
-
+char temp[]={0x6F, 0x43,'\0'}; //Отрисовка градусов Цельсия
 
 void setup() {
   
@@ -64,8 +64,8 @@ void loop() {
     Serial.println();
  //BMP085
     lcd.print(bmp.readTemperature(), 1); // ", 1" - округление до 1 десятой (0 - до целых)
-    lcd.print(char(0)); // Символ градуса
-    lcd.print("C ");
+    lcd.print(temp); // Символ градуса
+    lcd.print(" ");
     lcd.print(bmp.readPressure()*0.0075006375541921, 0); // ", 1" - округление до 1 десятой (0 - до целых)
     lcd.print("mmHg");
     Serial.print("Temperature = ");
