@@ -12,6 +12,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 #include <LiquidCrystal.h> //Sample using LiquidCrystal library
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7); // select the pins used on the LCD panel  
+// Символ градуса
 byte temp_cel[8] =
 {
 0b00111,
@@ -32,7 +33,7 @@ void setup() {
   RTC.begin();
   dht.begin(); 
   lcd.begin(16, 2);              // start the library
-  lcd.createChar(0, temp_cel);
+  lcd.createChar(0, temp_cel); // Символ градуса
 
   if (!bmp.begin()) {
   Serial.println("Could not find a valid BMP085 sensor, check wiring!");
@@ -63,7 +64,7 @@ void loop() {
     Serial.println();
  //BMP085
     lcd.print(bmp.readTemperature(), 1); // ", 1" - округление до 1 десятой (0 - до целых)
-    lcd.print(char(0));
+    lcd.print(char(0)); // Символ градуса
     lcd.print("C ");
     lcd.print(bmp.readPressure()*0.0075006375541921, 0); // ", 1" - округление до 1 десятой (0 - до целых)
     lcd.print("mmHg");
