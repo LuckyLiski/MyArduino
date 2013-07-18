@@ -1,7 +1,7 @@
-#include <NewSoftSerial.h>
+#include <SoftwareSerial.h>
 #include <string.h>
 
-NewSoftSerial mySerial(2, 3);
+SoftwareSerial mySerial(2, 3);
 
 #define num_to_char(number)   ((number) < 10 ?                           \
                                                ('0' + (number)) :        \
@@ -96,6 +96,6 @@ void send_sms(char *data)
 }
 void hexdump_byte(unsigned char byte)
 {
-  mySerial.print(hexdump_a(byte), BYTE);
-  mySerial.print(hexdump_b(byte), BYTE);
+  mySerial.print(hexdump_a(byte));
+  mySerial.print(hexdump_b(byte));
 }
