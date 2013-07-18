@@ -1,4 +1,7 @@
 /***********************************************************
+
+https://sites.google.com/site/carlosoliveiraprojects/home/arduino/gsm-and-arduino
+
 *                  SMS Alarm  
     This Software uses Arduino connected to a mobile phone(SIEMENS C75) 
     and it sends a SMS when a certain amount of light is off (LDR) and it sends 
