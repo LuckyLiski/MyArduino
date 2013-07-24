@@ -9,6 +9,7 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 int gas = 5; // Пин датчика газа А5
 float d = 0;
 float oldit = 0;
+float dig = 0;
 
 
 void setup()
@@ -18,12 +19,17 @@ lcd.begin(16, 2);              // Старт дисплея
   
 void loop()
 {
-  lcd.setCursor(0,0);
-  lcd.print("Methane ");
-  lcd.print(analogRead(gas)); // Выодим значение датчика 0-1023
-
   float num = analogRead(gas); // get input
-  float it = map(num, 200, 1023, 0, 16);  // перевод значения аналогового входа в 16 частей для прогресс бара <== КАЛИБРОВАТЬ ЗДЕСЬ
+  
+  float dig = map(num, 170, 1023, 0, 100); 
+  
+  lcd.setCursor(0,0);
+  lcd.print("GAS_CH4 ");
+  lcd.print(dig, 0);
+  lcd.print("%");
+  //lcd.print(analogRead(gas)); // Выводим значение датчика 0-1023
+
+  float it = map(num, 170, 1023, 0, 16);  // перевод значения аналогового входа в 16 частей для прогресс бара <== КАЛИБРОВАТЬ ЗДЕСЬ
   
 
 //Рисуем прогресс бар
