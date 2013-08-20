@@ -26,7 +26,7 @@ void loop()
   lcd.drawLine(10, 40, 50, 10, RGB(0,255,255));
   lcd.drawCircle(88, 30, dia, RGB(255,255,0));
   lcd.fillRect(120, 10, 150, 40, RGB(0,0,255));
-  lcd.drawTextPGM(10, 50, PSTR("Test \xFF \xEE \xDD \xCC \xBB \xAA"), 1, RGB(0,255,0), RGB(255,0,0));
+  lcd.drawTextPGM(10, 50, PSTR("\x8F\xE0\xAE\xA2\xA5\xE0\xAA\xA0"), 2, RGB(0,255,0), RGB(255,0,0)); //Проверка
   lcd.drawTextPGM(10, 80, PSTR("         by         "), 1, RGB(255,255,  0), RGB(255,  0,  0));
   lcd.drawTextPGM(10, 95, PSTR("Watterott electronic"), 1, RGB(255,255,255), RGB(255,  0,  0));
   lcd.drawTextPGM(10,110, PSTR(" www.watterott.com  "), 1, RGB(  0,  0,255), RGB(255,  0,  0));
