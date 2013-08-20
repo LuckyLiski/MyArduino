@@ -14,15 +14,22 @@ void setup()
 
 void loop()
 {
-  lcd.drawLine(10, 10, 50, 40, RGB(  0,255,255));
-  lcd.drawLine(10, 40, 50, 10, RGB(  0,255,255));
-
-  lcd.drawCircle(88, 30, 12, RGB(255,255,  0));
-
-  lcd.drawTextPGM(10, 50, PSTR("Pasha")          , 3, RGB(  0,255,  0), RGB(255,  0,  0));
+  int armcurrent = analogRead(A0); //показания аналогово выхода
+  char str[5]; // объявляем текстовую строку как массив "str" из 5-ти символов
+  sprintf(str, " %03i", armcurrent);
+  
+  int dia = 0;
+  dia = map(armcurrent, 0, 1023, 1, 30);
+  lcd.drawText(10, 65, str, 1, RGB( 0,255, 0), RGB(0,0,0));
+  
+  lcd.drawLine(10, 10, 50, 40, RGB(0,255,255));
+  lcd.drawLine(10, 40, 50, 10, RGB(0,255,255));
+  lcd.drawCircle(88, 30, dia, RGB(255,255,0));
+  lcd.fillRect(120, 10, 150, 40, RGB(0,0,255));
+  lcd.drawTextPGM(10, 50, PSTR("Test \xFF \xEE \xDD \xCC \xBB \xAA"), 1, RGB(0,255,0), RGB(255,0,0));
   lcd.drawTextPGM(10, 80, PSTR("         by         "), 1, RGB(255,255,  0), RGB(255,  0,  0));
   lcd.drawTextPGM(10, 95, PSTR("Watterott electronic"), 1, RGB(255,255,255), RGB(255,  0,  0));
   lcd.drawTextPGM(10,110, PSTR(" www.watterott.com  "), 1, RGB(  0,  0,255), RGB(255,  0,  0));
  
-  delay(1000);
+  delay(500);
 } 
