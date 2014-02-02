@@ -90,8 +90,8 @@ void loop()
   lcd.drawText(58, 124, sekundy, 1, YELLOW, BLUE);
 */    
 
-  lcd.drawText(ax+33, ay+2, ds, 1, RED,WHITE);
-  lcd.drawText(ax+95, ay+2, ("\xF8\x43"), 1, RED, WHITE);
+  lcd.drawText(33, 2, ds, 1, RED,WHITE);
+  lcd.drawText(95, 2, ("\xF8\x43"), 1, RED, WHITE);
   
   
   
@@ -104,6 +104,17 @@ void loop()
   lcd.drawLine(ax+23, ay+2, ax+23, ay+8, RED);
   
   // Значок тормоза
-  lcd.drawCircle(87, 61, 10, RED);
   lcd.drawText(70, 55, ("\x28\x21\x29"), 1, RED, WHITE); // (!)
+  lcd.drawCircle(87, 61, 10, RED);
+
+  
+    // read the input on analog pin 0:
+  int sensorValue = analogRead(A0);
+  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+  float voltage = sensorValue * (20.0 / 1023.0);
+  char volt[7];   
+  int vv = (voltage - (int)voltage) * 10; // множитель - число знаков после запятой. 10 - 1, 100 - 2, 1000 - 3 и т.д. 
+  sprintf(volt,"%d.%d", (int)voltage, abs(vv));
+  lcd.drawText(ax+33, ay+2, volt, 1, RED, WHITE);
+  lcd.drawText(ax+95, ay+2, ("VOLT"), 1, RED, WHITE);
 } 
