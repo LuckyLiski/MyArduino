@@ -8,7 +8,7 @@ GND           GND
 2V9           +3,3v
 DAT   MOSI    pin 11
 CLK   SCK     pin 13
-CS            pin A4
+CS            pin A2
 RESET         pin A3
 RS            pin 4
 */
